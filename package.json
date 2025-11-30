@@ -9,14 +9,14 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "nuxt": "^3.10.0",
-    "@nuxtjs/tailwindcss": "^6.10.0",
-    "daisyui": "^4.10.0",
     "@heroicons/vue": "^2.1.0",
-    "@pinia/nuxt": "^0.6.4",
-    "pinia": "^2.1.7"
+    "@nuxt/icon": "^2.1.0",
+    "@pinia/nuxt": "^0.11.3",
+    "daisyui": "^4.10.0",
+    "nuxt": "^3.10.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.17",
     "eslint": "^9.0.0",
     "typescript": "^5.0.0"
   }

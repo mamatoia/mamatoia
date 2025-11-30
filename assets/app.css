@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fieldset-label {
+  opacity: 0;
+}
+
+.bg-gorillaz {
+  /* Inverted gradient: show the darker base-300 at the top so header
+     visually matches the current design (top darker, bottom lighter).
+     Uses theme variables so it adapts when data-theme changes. */
+  background: linear-gradient(
+    to bottom,
+    var(--header-top) 0%,
+    var(--header-mid) 40%,
+    var(--header-bottom) 100%
+  );
+  color: var(--header-text);
+  /* Ensure child icons and links inherit the header text color */
+  a,
+  button,
+  svg {
+    color: inherit;
+    fill: currentColor;
+  }
+  /* Ensure headings and common title classes use the header text color */
+  h1,
+  h2,
+  h3,
+  .title,
+  .header-title,
+  .app-header__title {
+    color: var(--header-text);
+  }
+  /* Ensure icon buttons use the header text color */
+  .icon-btn {
+    color: var(--header-text) !important;
+    background: none;
+  }
+  .icon-btn svg {
+    color: inherit;
+    fill: currentColor;
+  }
+}
+
+/* Gorillaz mid gray as solid fill for panels (kept for compatibility) */
+.bg-gorillaz-mid {
+  background-color: #2f2f2f;
+}
+
+/*
+  Disable browser pull-to-refresh on mobile (Chrome/Android)
+  so it doesn't conflict with the in-app refresh.
+  This prevents the viewport overscroll from triggering
+  the native refresh gesture when scrolled to the top.
+*/
+html,
+body {
+  overscroll-behavior-y: none; /* block pull-to-refresh */
+}
+
+/* Standardized dropdown menu sizing across the app */
+.app-menu {
+  width: 16rem; /* w-64 */
+  padding: 1rem; /* p-4 */
+}
+.app-menu a,
+.app-menu button,
+.app-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  width: 100%;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5rem; /* leading-6 */
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+}
+.app-menu li + li {
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+/* Compatibility: force stable color formats for older WebViews/browsers
+   Some build/minifiers may emit short hex forms (e.g. "#0000") which
+   are not supported in older embedded webviews. Provide explicit
+   overrides using `transparent` / `rgba()` so the app renders consistently.
+*/
+.bg-transparent {
+  background-color: transparent !important;
+}
+.bg-black\/5 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Compatibility: force stable color formats for older WebViews/browsers
+   Some build/minifiers may emit short hex forms (e.g. "#0000") which
+   are not supported in older embedded webviews. Provide explicit
+   overrides using `transparent` / `rgba()` so the app renders consistently.
+*/
+.bg-transparent {
+  background-color: transparent !important;
+}
+.bg-black\/5 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Strong compatibility overrides for embedded WebViews and cached CSS
+   Force form controls to use transparent/rgb(A) backgrounds so older
+   engines that interpret short hex forms like `#0000` incorrectly
+   won't show broken backgrounds. These are intentionally broad and
+   use `!important` because some third-party CSS may be loaded after
+   our bundle in production. */
+/* COMMENTED OUT - causing issues with button colors
+button,
+input,
+optgroup,
+select,
+textarea {
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: none !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+*/
+
+/* Also normalize outline for forced-contrast/forced-colors environments */
+@media (forced-colors: active) {
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    outline-color: rgba(0, 0, 0, 0.4) !important;
+  }
+}
