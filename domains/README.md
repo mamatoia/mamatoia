@@ -1,15 +1,23 @@
 # domains
 
-(Estructura opcional, pero recomendada para proyectos grandes)
-
-Aquí puedes organizar stores, servicios y lógica por dominio de negocio.
+Aqui se debe crear una carpeta que corresponde al dominio
 
 Ejemplo:
 
 ```
 domains/web/
-  userStore.ts
-  userService.ts
+
+```
+
+y esta carpeta contiene la base funcional del proyecto organizado en las siguientes carpetas
+
+```
+views
+panels
+widgets
+components
+stores
+services
 ```
 
 Esto ayuda a mantener el proyecto escalable y organizado por contexto de negocio.
