@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "~/mamatoia/*": ["domains/mamatoia/*"],
+      "~/mamatoia": ["domains/mamatoia"]
     },
     "types": ["@types/node", "@nuxt/types", "@nuxtjs/tailwindcss"]
   }

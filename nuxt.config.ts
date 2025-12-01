@@ -1,10 +1,12 @@
 import { defineNuxtConfig } from "nuxt/config";
 import tailwindcss from "@tailwindcss/vite";
+import { resolve } from "path";
 
 export default defineNuxtConfig({
   // Proxy en producción (y SSR) con Nitro Route Rules
   // Esto hace que las rutas locales /api/** y /services/** se reenvíen al backend en prod
   // manteniendo el mismo esquema de reescritura que el proxy de Vite en desarrollo.
+
   routeRules: {
     "/api/**": {
       proxy: {
@@ -24,7 +26,7 @@ export default defineNuxtConfig({
     },
   },
   devServer: {
-    port: 3001,
+    port: 3000,
     host: "localhost",
   },
   vite: {
@@ -47,6 +49,18 @@ export default defineNuxtConfig({
           rewrite: (path) => path.replace(/^\/services/, ""),
         },
       },
+    },
+    resolve: {
+      alias: [
+        {
+          find: /^~\/mamatoia\/(.*)/,
+          replacement: resolve(__dirname, "domains/mamatoia/$1"),
+        },
+        {
+          find: /^~\/mamatoia$/,
+          replacement: resolve(__dirname, "domains/mamatoia"),
+        },
+      ],
     },
   },
   app: {

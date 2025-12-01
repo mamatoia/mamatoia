@@ -4,12 +4,8 @@ Este proyecto sigue principios SOLID y una arquitectura orientada a dominio, con
 
 ## Estructura General
 
-- **pages/**: Solo carga vistas (views). No contiene lógica ni componentes directos.
-- **views/**: Se arma con panels. Cada view representa una pantalla o sección principal.
-- **panels/**: Un panel es una sección de una view. Puede cargar componentes o widgets.
-- **widgets/**: Cada widget es un componente autocontenible, con su propio store. Si necesita interactuar con otros widgets o stores, lo hace mediante eventos o enlazando stores padres.
-- **components/ui/**: Contiene componentes atómicos, organizados por categoría. Todos los componentes son de responsabilidad única.
-- **domains/**: (Opcional) Aquí puedes organizar lógica y stores por dominio de negocio, por ejemplo `domains/web`.
+- **domains/**: Aquí se implementa el proyecto por ejemplo: `domains/web`. y aquí se creará todo el contenido del proyecto que servirá a pages desde la carpeta views por ej: `domains/web/vews`
+  reviar como implementar en domains/README.md
 
 ## Tailwind y DaisyUI
 
@@ -22,6 +18,7 @@ Este proyecto sigue principios SOLID y una arquitectura orientada a dominio, con
 - Los stores son la única forma de conectar componentes/widgets con servicios externos.
 - Los widgets agnósticos deben comunicarse mediante eventos o stores conectables.
 - No se usan composables. Toda la lógica va dentro del componente o el store.
+- El widget es un componente que tiene la posibilidad ya de funcionar con la hidratación de datos
 
 ## Responsabilidad Única
 
@@ -39,8 +36,7 @@ Este proyecto sigue principios SOLID y una arquitectura orientada a dominio, con
 ```
 pages/
   index.vue (solo importa la view)
-views/
-  HomeView.vue (usa panels)
+
 panels/
   HomePanel.vue (usa widgets o componentes)
 widgets/
@@ -55,6 +51,8 @@ components/
       SimpleList.vue
 domains/
   web/
+    views/
+    HomeView.vue (usa panels)
     ...
 ```
 

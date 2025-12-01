@@ -1,6 +1,128 @@
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+@plugin "daisyui/theme" {
+  name: "paseshow";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(98% 0.002 247.839);
+  --color-base-200: oklch(96% 0.003 264.542);
+  --color-base-300: oklch(92% 0.006 264.531);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: #55287f;
+  --color-primary-content: oklch(93% 0.034 272.788);
+  --color-secondary: #0dc857;
+  --color-secondary-content: #0dc857;
+  --color-accent: oklch(84% 0.238 128.85);
+  --color-accent-content: #0dc857;
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: #3399ff;
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+  /* Header gradient variables for light: lighter tones so header is visible */
+  --header-top: #dfdfdf;
+  --header-mid: #f5f5f5;
+  --header-bottom: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: false;
+  color-scheme: "dark";
+  --color-base-100: oklch(14% 0.004 49.25);
+  --color-base-200: oklch(30% 0.006 56.043);
+  --color-base-300: #2f2f2f;
+  --color-base-content: oklch(97% 0.001 106.424);
+  --color-primary: #55287f;
+  --color-primary-content: oklch(26% 0.051 172.552);
+  --color-secondary: #0dc857;
+  --color-secondary-content: oklch(28% 0.109 3.907);
+  --color-accent: #3399ff;
+  --color-accent-content: oklch(26% 0.079 36.259);
+  --color-neutral: #1a1a1a;
+  --color-neutral-content: oklch(98% 0.001 106.423);
+  --color-info: #00bafe;
+  --color-info-content: oklch(97% 0.014 254.604);
+  --color-success: #00d390;
+  --color-success-content: oklch(98% 0.031 120.757);
+  --color-warning: #fcb700;
+  --color-warning-content: oklch(98% 0.022 95.277);
+  --color-error: #ff637d;
+  --color-error-content: oklch(97% 0.013 17.38);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+  /* Header gradient: subtle primary-tone overlay for light theme */
+  /* Use rgba of --color-primary (#55287f) to tint a light header */
+  --header-top: rgba(85, 40, 127, 0.1);
+  --header-mid: rgba(85, 40, 127, 0.06);
+  --header-bottom: rgba(85, 40, 127, 0.02);
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(93% 0 0);
+  --color-base-300: #f3f4f6;
+  --color-base-content: oklch(35.519% 0.032 262.988);
+  --color-primary: #55287f;
+  --color-primary-content: oklch(33.387% 0.04 162.24);
+  --color-secondary: #0dc857;
+  --color-secondary-content: oklch(100% 0 0);
+  --color-accent: #3399ff;
+  --color-accent-content: oklch(0% 0 0);
+  --color-neutral: oklch(35.519% 0.032 262.988);
+  --color-neutral-content: oklch(98.462% 0.001 247.838);
+  --color-info: #00bafe;
+  --color-info-content: oklch(0% 0 0);
+  --color-success: #00d390;
+  --color-success-content: oklch(0% 0 0);
+  --color-warning: oklch(84.71% 0.199 83.87);
+  --color-warning-content: oklch(0% 0 0);
+  --color-error: oklch(71.76% 0.221 22.18);
+  --color-error-content: oklch(0% 0 0);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+  /* Header: use primary as dominant background and light text for contrast */
+  --header-top: #55287f; /* primary */
+  --header-mid: #4a206f; /* slightly darker */
+  --header-bottom: #3e195f; /* darker stop */
+  --header-text: #ffffff; /* light text for contrast */
+}
 
 .fieldset-label {
   opacity: 0;
